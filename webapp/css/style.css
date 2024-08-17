@@ -1,1 +1,38 @@
 /* Enter your custom styles here */
+/* CSS for making the card draggable */
+.draggableCard {
+    position: absolute;
+    cursor: move;
+    /* Set width and height as needed */
+}
+
+.draggableCard .sapFCard {
+    width: 50%;
+    height: 50%;
+}
+
+/* Optional: Add some styles to make it look better */
+.draggableCard {
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.sapMDialog.updateDialog {
+    width: 300px;
+    /* Adjust the width as needed */
+}
+
+.sapMDialog .sapMDialogScrollCont {
+    max-height: 80vh;
+    /* Adjust the maximum height as needed */
+}
+
+.pageBackground {
+    background-image: url('https://i.postimg.cc/HxdccK23/loading-docks-19268044-transformed-3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.title {
+    background-color: #aac2e8;
+    background-image: linear-gradient(to bottom, #aac2e8, #ffffff);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}

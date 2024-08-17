@@ -17,11 +17,14 @@
             id="scrollContainer"
             vertical="true"
             height="100%"
+              class="sapUiContentPadding pageBackground dimEffect"
+                         style="background-image: url('https://i.postimg.cc/HxdccK23/loading-docks-19268044-transformed-3.jpg');"
         >
             <tnt:ToolHeader
                 id="toolHeader"
-                class="sapUiTinyMargin"
+              
                 height="15vh"
+                    class="title"
             >
             <VBox id="idVBoxjksbdnf__">
                 <Image
@@ -35,6 +38,7 @@
                     text="Parking Management"
                     wrapping="true"
                     textAlign="Right"
+                
                     
                 />
                 </VBox>

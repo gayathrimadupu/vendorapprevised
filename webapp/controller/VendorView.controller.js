@@ -28,9 +28,13 @@ sap.ui.define([
                     Reserveddate: ""
                 });
                 this.getView().setModel(newReserveModel, "newReserveModel");
-
+                var oViewModel = new sap.ui.model.json.JSONModel({
+                    ImageURL: "https://i.postimg.cc/HxdccK23/loading-docks-19268044-transformed-3.jpg"
+                });
+                this.getView().setModel(oViewModel, "viewModel");
 
             },
+            
             onCloseDialog: function () {
                 if (this.oReserve.isOpen()) {
                     this.oReserve.close()
