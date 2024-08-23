@@ -52,11 +52,11 @@ sap.ui.define([
                 const oModel = this.getView().getModel(),
                     oUserView = this.getView(),
                     oThis = this
-                var sDriverName = this.getView().byId("idkdjgbrrddrivername").getValue()
-                var sDriverMobile = this.getView().byId("iddrivrtmobilwInput").getValue()
-                var sVehicle = this.getView().byId("idameInput").getValue()
+                    var sDriverName = this.getView().byId("idkdjgbrrddrivername").getValue().toUpperCase()
+                    var sDriverMobile = this.getView().byId("iddrivrtmobilwInput").getValue().toUpperCase()
+                    var sVehicle = this.getView().byId("idameInput").getValue().toUpperCase()
                 // var sTypeofdelivery = this.getView().byId("idTypeOfDelivery").getSelectedKey()
-                var sVendorName = this.getView().byId("idvendordadNameInput").getValue()
+                var sVendorName = this.getView().byId("idvendordadNameInput").getValue().toUpperCase()
 
                 // UUID generation
                 function generateUUID() {
@@ -78,9 +78,9 @@ sap.ui.define([
                 }
 
                 var bValid = true;
-                if (!sDriverName || sDriverName.length < 3) {
+                if (!sDriverName || sDriverName.length < 3|| !/^[a-zA-Z\s]+$/.test(sDriverName)) {
                     oUserView.byId("idkdjgbrrddrivername").setValueState("Error");
-                    oUserView.byId("idkdjgbrrddrivername").setValueStateText("Name Must Contain 3 Characters");
+                    oUserView.byId("idkdjgbrrddrivername").setValueStateText("Name Must Contain 3 Characters A-Z or a-z");
                     bValid = false;
                 } else {
                     oUserView.byId("idkdjgbrrddrivername").setValueState("None");
@@ -101,9 +101,9 @@ sap.ui.define([
                 } else {
                     oUserView.byId("idameInput").setValueState("None");
                 }
-                if (!sVendorName || sVendorName.length < 3) {
+                if (!sVendorName || sVendorName.length < 3|| !/^[a-zA-Z\s]+$/.test(sVendorName)) {
                     oUserView.byId("idvendordadNameInput").setValueState("Error");
-                    oUserView.byId("idvendordadNameInput").setValueStateText("Vendor Name Must Contain 3 Characters");
+                    oUserView.byId("idvendordadNameInput").setValueStateText("Vendor Name Must Contain 3 Characters A-Z or a-z");
                     bValid = false;
                 } else {
                     oUserView.byId("idvendordadNameInput").setValueState("None");
@@ -119,7 +119,7 @@ sap.ui.define([
                 oModel.read("/ZPARKING_RESERVE_SSet", {
                     filters: [ofilter],
                     success: function (oData) {
-                        if (oData.result) {
+                        if (oData.results.length>0) {
                             MessageBox.warning("You can not reserve.vehicle number " + sVehicle + " already reserved")
                         } else {
                             oModel.create("/ZPARKING_RESERVE_SSet", newReservePayload, {
